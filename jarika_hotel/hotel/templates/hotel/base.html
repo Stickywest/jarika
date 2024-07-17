@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarika Hotel</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Custom styles for the navbar */
+        body {
+            padding-top: 0;
+            margin-top: 0;
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure it's above other content */
+            background-color: #007bff; /* Blue background color */
+            transition: background-color 0.3s ease; /* Smooth color transition */
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .navbar-brand img {
+            animation: slideInLeft 1s ease; /* Animation for logo slide-in */
+        }
+        .navbar-nav .nav-item .nav-link {
+            color: #ffffff; /* White text color */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #ffc107; /* Yellow color on hover */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" height="70px" alt="Jarika Hotel Logo">
+                Jarika Hotel
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'rooms' %}">Rooms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'bookings' %}">Bookings</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <p class="text-muted">&copy; 2024 Jarika Hotel. All Rights Reserved.</p>
+            <p class="text-muted">
+                Phone: +1 (555) 123-4567 | Email: <a href="mailto:info@jarikahotel.com">info@jarikahotel.com</a>
+            </p>
+            <div>
+                <a href="https://www.facebook.com/jarikahotel" target="_blank" class="text-muted mx-2"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com/jarikahotel" target="_blank" class="text-muted mx-2"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/jarikahotel" target="_blank" class="text-muted mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/jarikahotel" target="_blank" class="text-muted mx-2"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

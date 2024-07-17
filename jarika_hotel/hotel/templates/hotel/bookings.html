@@ -1,0 +1,12 @@
+{% extends 'hotel/base.html' %}
+
+{% block content %}
+<h2>Your Bookings</h2>
+<div class="list-group">
+    {% for booking in bookings %}
+    <a href="#" class="list-group-item list-group-item-action">
+        Booking for {{ booking.room }} from {{ booking.check_in }} to {{ booking.check_out }}
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
